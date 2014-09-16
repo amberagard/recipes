@@ -2,56 +2,34 @@ require 'spec_helper'
 
 describe "Static pages" do
 
+  subject { page }
+
   describe "Home page" do
-    it "should have the content 'Recipes'" do
-      visit '/static_pages/home'
-      expect(page).to have_content('Recipes')
-    end
+    before { visit root_path }
 
-    it "should have the title 'Home'" do
-      visit '/static_pages/home'
-      expect(page).to have_title("Recipe Tracker")
-    end
-
-    it "should not have a custom page title" do
-      visit '/static_pages/home'
-      expect(page).not_to have_title('| Home')
-    end
+    it { should have_content('Recipes') }
+    it { should have_title(full_title('')) }
+    it { should_not have_title('| Home') }
   end
 
   describe "Help page" do
-    it "should have the content 'Help'" do
-      visit '/static_pages/help'
-      expect(page).to have_content('Help')
-    end
+    before { visit help_path }
 
-    it "should have the title 'Help'" do
-      visit '/static_pages/help'
-      expect(page).to have_title("Recipe Tracker | Help")
-    end
+    it { should have_content('Help') }
+    it { should have_title(full_title('Help')) }
   end
 
   describe "About page" do
-    it "should have the content 'About'" do
-      visit '/static_pages/about'
-      expect(page).to have_content('About')
-    end
+    before { visit about_path }
 
-    it "should have the title 'About'" do
-      visit '/static_pages/about'
-      expect(page).to have_title("Recipe Tracker | About")
-    end
+    it { should have_content('About') }
+    it { should have_title(full_title('About')) }
   end
 
   describe "Recipes page" do
-    it "should have the content 'Recipes'" do
-      visit '/static_pages/recipes'
-      expect(page).to have_content('Recipes')
-    end
+    before { visit recipes_path }
 
-    it "should have the title 'Recipes'" do
-      visit '/static_pages/recipes'
-      expect(page).to have_title("Recipe Tracker | Recipes")
-    end
+    it { should have_content('Recipes') }
+    it { should have_title(full_title('Recipes')) }
   end
 end
