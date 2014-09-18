@@ -1,6 +1,8 @@
 Recipes::Application.routes.draw do
+  get "recipes/new"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :recipes
   root 'static_pages#home'
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
