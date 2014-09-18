@@ -1,0 +1,8 @@
+<% provide(:title, 'Ingredients') %>
+<%= link_to "Create Ingredients", new_ingredient_path %>
+
+<ul class="ingredients">
+  <% @ingredients.each_with_index do |ingredient| %>
+    <%= link_to ingredient.name, ingredient_path(ingredient) %>
+  <% end %>
+</ul>

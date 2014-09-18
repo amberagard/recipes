@@ -1,2 +1,8 @@
 <% provide(:title, 'Recipes') %>
 <%= link_to "Create New Recipe", new_recipe_path %>
+
+<ul class="recipes">
+  <% @recipes.each_with_index do |recipe| %>
+    <%= link_to recipe.name, recipe_path(recipe) %>
+  <% end %>
+</ul>
