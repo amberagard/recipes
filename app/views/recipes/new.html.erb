@@ -3,14 +3,28 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@recipe) do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+    <%= form_for @recipe do | recipe_form | %>
+      <%= render "recipe_form", recipe_form: recipe_form %>
+      <%= recipe_form.fields_for :recipe_ingredients, @recipe_ingredient do | recipe_ingredients_form | %>
 
-      <%= f.label :description %>
-      <%= f.text_field :description %>
+        <%= render "recipe_ingredient_form", recipe_ingredients_form: recipe_ingredients_form %>
+        <%= button_tag "Add Another Ingredient", type: 'button', id: 'add_form_line' %>
 
-      <%= f.submit "Create New Recipe", class: "btn btn-large btn-primary" %>
+        <div id="form_partial_wrapper">
+          <div class="hidden">
+            <span class="form_clone" id="clone_template">
+              <%= recipe_form.fields_for :recipe_ingredients, @recipe_ingredient do | recipe_ingredients_form | %>
+                <%= render "recipe_ingredient_form", recipe_ingredients_form: recipe_ingredients_form %>
+              <% end %>
+              <br/>
+            </span>
+          </div>
+        </div>
+
+
+      <% end %>
+
+      <%= recipe_form.submit "Create New Recipe", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>

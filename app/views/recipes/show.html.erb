@@ -1,3 +1,11 @@
 <% provide(:title, @recipe.name) %>
 <h1><%= @recipe.name %></h1>
 <p><%= @recipe.description %></p>
+
+<% @recipe_ingredients.each do | ingredient | %>
+  <%= ingredient.ingredient_name %>
+  <%= ingredient.amount %>
+  <%= ingredient.unit %>
+<% end %>
+
+<p><%= @recipe.instructions %></p>

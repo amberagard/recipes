@@ -15,3 +15,30 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+
+  $('#add_form_line').click(function(){
+    var clonedForm = $('#clone_template').clone();
+    formatForm(clonedForm);
+    var numItems = $('.form_clone').length;
+    incrementIDs( clonedForm, numItems )
+  });
+
+  function formatForm(clonedForm) {
+    clonedForm.removeAttr('id');
+    clonedForm.appendTo('#form_partial_wrapper');
+  }
+
+  function incrementIDs(clonedForm, numItems) {
+    clonedForm.find('select, input').each(function() {
+
+      $(this).attr('name', incrementValue).attr('id', incrementValue);
+
+      function incrementValue(i, val) {
+        return val.replace(/\d+/, numItems);
+      }
+    });
+  }
+
+});

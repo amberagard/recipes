@@ -15,6 +15,7 @@ html {
 
 body {
   padding-top: 60px;
+  background-color: #AEC4A5;
 }
 
 section {
@@ -44,6 +45,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  text-shadow: 1px 1px 2px #000000;
 }
 
 h2 {
@@ -78,13 +80,34 @@ p {
   }
 }
 
+.navbar.navbar-fixed-top.navbar-inverse {
+  box-shadow: 0.5px 0.5px 2px #000000;
+  .navbar-inner {
+    border: none;
+    .container {
+      background-color: #F0EDDA;
+      margin: 0;
+      width: 100%;
+      .nav.pull-right {
+        padding: 0px 100px;
+        a {
+          color: #525164;
+          &:hover {
+            color: #DC938B;
+          }
+        }
+      }
+    }
+  }
+}
+
 /* footer */
 
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $lighterGray;
-  color: $grayLight;
+  border-top: 1px solid #EDEBD1;
+  color: #525164;
   a {
     color: $gray;
     &:hover {
@@ -176,4 +199,56 @@ input {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
+}
+
+/* home page */
+
+.center.hero-unit {
+  background-color: #FFFFFF;
+  box-shadow: 2px 2px 5px #000000;
+  h1 {
+    color: #525164;
+  }
+  p {
+    color: #DC938B;
+  }
+}
+
+/* signin page */
+
+.page_header {
+  color: #E3E6E8;
+}
+
+.signup_link {
+  color: #525164;
+  a {
+    color: #525164;
+    &:hover {
+      color: #E3E6E8;
+      text-decoration: none;
+    }
+  }
+}
+
+label {
+  color: #525164;
+}
+
+/* recipes index */
+
+.recipes {
+  a {
+    display: block;
+    color: #525164;
+    text-decoration: none;
+    margin-bottom: 10px;
+    &:hover {
+      color: #E3E6E8;
+    }
+  }
+}
+
+.btn.btn-small.btn-inverse {
+  margin-bottom: 10px;
 }

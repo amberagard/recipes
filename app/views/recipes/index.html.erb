@@ -1,5 +1,6 @@
 <% provide(:title, 'Recipes') %>
-<%= link_to "Create New Recipe", new_recipe_path %>
+<h1 class="page_header">Your Recipes</h1>
+<%= link_to "Create New Recipe", new_recipe_path, class: "btn btn-small btn-inverse" %>
 
 <ul class="recipes">
   <% @recipes.each_with_index do |recipe| %>

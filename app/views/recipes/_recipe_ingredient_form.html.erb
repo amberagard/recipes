@@ -1,0 +1,6 @@
+<%= recipe_ingredients_form.label :ingredient_id, 'Ingredient', :class => 'hidden_label' %>
+<%= recipe_ingredients_form.collection_select :ingredient_id, Ingredient.all, :id, :name, prompt: "Select an ingredient" %>
+<%= recipe_ingredients_form.label :amount, 'Amount', :class => 'hidden_label' %>
+<%= recipe_ingredients_form.number_field :amount, placeholder: '1, 2, 3, 4', :class => 'inline_form' %>
+<%= recipe_ingredients_form.label :unit, 'Unit', :class => 'hidden_label' %>
+<%= recipe_ingredients_form.text_field :unit, placeholder: 'tbsp, cups, etc.', :class => 'inline_form' %>

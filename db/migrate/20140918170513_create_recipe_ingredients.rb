@@ -1,8 +1,8 @@
 class CreateRecipeIngredients < ActiveRecord::Migration
   def change
     create_table :recipe_ingredients do |t|
-      t.references :recipie, index: true
-      t.references :ingredient, index: true
+      t.references :recipe
+      t.references :ingredient
       t.integer :amount
       t.string :unit
 
