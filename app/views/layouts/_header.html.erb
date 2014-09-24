@@ -3,9 +3,9 @@
     <div class="container">
       <nav>
         <ul class="nav pull-right">
-          <!-- <li><%= link_to "Home", root_path %></li> -->
-          <li><%= link_to "About", about_path %></li>
-          <li><%= link_to "Help", help_path %></li>
+          <li><%= link_to "Home", root_path %></li>
+          <!-- <li><%= link_to "About", about_path %></li> -->
+          <!-- <li><%= link_to "Help", help_path %></li> -->
           <% if signed_in? %>
             <li><%= link_to "Recipes", recipes_path %></li>
             <li id="fat-menu" class="dropdown">
@@ -22,6 +22,14 @@
             </li>
           <% else %>
             <li><%= link_to "Sign in", signin_path %></li>
+          <% end %>
+        </ul>
+        <ul class="nav pull-left">
+          <% if signed_in? %>
+            <form class="navbar-search">
+              <input type="text" class="search-query" placeholder="Search by ingredient">
+              <!-- <button type="submit" class="btn btn-small">Search</button> -->
+            </form>
           <% end %>
         </ul>
       </nav>

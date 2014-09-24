@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   before_save { email.downcase! }
   before_create :create_remember_token
+  acts_as_commontator
 
   has_many :recipes
   has_many :ingredients

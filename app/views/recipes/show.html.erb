@@ -1,11 +1,17 @@
 <% provide(:title, @recipe.name) %>
-<h1><%= @recipe.name %></h1>
-<p><%= @recipe.description %></p>
+<h1 class="recipe_name"><%= @recipe.name %></h1>
+<h3>Description</h3>
+<p class="recipe_description"><%= @recipe.description %></p>
 
-<% @recipe_ingredients.each do | ingredient | %>
-  <%= ingredient.ingredient_name %>
-  <%= ingredient.amount %>
-  <%= ingredient.unit %>
-<% end %>
+<h3>Ingredients</h3>
 
+  <% @recipe_ingredients.each do | ingredient | %>
+    <p class="recipe_ingredients"><%= ingredient.ingredient_name %>
+    <%= ingredient.amount %>
+    <%= ingredient.unit %>
+  <% end %></p>
+
+<h3 class="recipe_instructions">Instructions</h3>
 <p><%= @recipe.instructions %></p>
+
+<%= commontator_thread(@recipe) %>

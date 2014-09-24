@@ -21,6 +21,7 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @recipe_ingredients = @recipe.recipe_ingredients.all
+    commontator_thread_show(@recipe)
   end
 
   private

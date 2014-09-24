@@ -1,11 +1,16 @@
 <% if signed_in? %>
-  <p>Dashboard</p>
+  <div class="center hero-unit">
+    <h1>Welcome to Recipe Tracker</h1>
+
+    <p>Keep track of all your favorite recipes.</p>
 <% else %>
   <div class="center hero-unit">
     <h1>Welcome to Recipe Tracker</h1>
 
-    <p>Come up with a non-cheesey tagline.</p>
+    <p>Keep track of all your favorite recipes.</p>
 
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-inverse" %>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn" %>
+
+    <p>Existing user? <%= link_to "Sign in!", signin_path, class: "signin_link" %></p>
   </div>
 <% end %>

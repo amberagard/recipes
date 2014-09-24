@@ -1,5 +1,5 @@
 <% provide(:title, 'Recipes') %>
-<h1>Create a Recipe</h1>
+<h1 class="create_recipe">Create a Recipe</h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -8,7 +8,7 @@
       <%= recipe_form.fields_for :recipe_ingredients, @recipe_ingredient do | recipe_ingredients_form | %>
 
         <%= render "recipe_ingredient_form", recipe_ingredients_form: recipe_ingredients_form %>
-        <%= button_tag "Add Another Ingredient", type: 'button', id: 'add_form_line' %>
+        <%= button_tag "Add Another Ingredient", type: 'button', id: 'add_form_line', class: "btn btn-small btn" %>
 
         <div id="form_partial_wrapper">
           <div class="hidden">
@@ -24,7 +24,7 @@
 
       <% end %>
 
-      <%= recipe_form.submit "Create New Recipe", class: "btn btn-large btn-primary" %>
+      <%= recipe_form.submit "Create New Recipe", class: "btn btn-medium btn-inverse" %>
     <% end %>
   </div>
 </div>
