@@ -35,7 +35,7 @@ Commontator.configure do |config|
   # Arguments: a user (acts_as_commontator)
   # Returns: the user's name (String)
   # Default: lambda { |user| I18n.t('commontator.anonymous') } (all users are anonymous)
-  config.user_name_proc = lambda { |user| I18n.t('commontator.anonymous') }
+  config.user_name_proc = lambda { |user| user.name }
 
   # user_link_proc
   # Type: Proc
@@ -234,4 +234,8 @@ Commontator.configure do |config|
   # (defaults to the commontable's show url)
   config.commontable_url_proc = lambda { |thread, app_routes|
     app_routes.polymorphic_url(thread.commontable) }
+end
+
+Commontator::ApplicationController.class_eval do
+  include ::SessionsHelper
 end
