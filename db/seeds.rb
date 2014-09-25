@@ -300,6 +300,7 @@ ingredients_list = [
 "English mustard",
 "epazote",
 "erythritol",
+"extra virgin olive oil",
 "falafel",
 "Falernum",
 "farina",
