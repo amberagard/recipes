@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20140924191025) do
   create_table "recipes", force: true do |t|
     t.string   "name"
     t.string   "description"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "instructions"
