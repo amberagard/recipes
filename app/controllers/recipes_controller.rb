@@ -24,8 +24,26 @@ class RecipesController < ApplicationController
     commontator_thread_show(@recipe)
   end
 
-  private
-  def recipe_params
-    params.require(:recipe).permit(:name, :description, :instructions, :recipe_ingredients_attributes => [:amount, :unit, :ingredient_id])
+  def favorite
+    @recipe = Recipe.find(params[:id])
+    type = params[:type]
+    if type == "favorite"
+      @favorite = current_user.favorite_recipes.create(recipe: @recipe)
+      if @favorite.valid?
+        redirect_to :back, notice: "You favorited #{@recipe.name}"
+      else
+        redirect_to :back, notice: "#{@recipe.name} has already been added to your favorites"
+      end
+    elsif type == "unfavorite"
+      current_user.favorites.delete(@recipe)
+      redirect_to :back, notice: "You unfavorited #{@recipe.name}"
+    else
+      redirect_to :back
+    end
   end
+
+  private
+    def recipe_params
+      params.require(:recipe).permit(:name, :description, :instructions, :recipe_ingredients_attributes => [:amount, :unit, :ingredient_id])
+    end
 end

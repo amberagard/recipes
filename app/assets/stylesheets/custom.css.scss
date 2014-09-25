@@ -275,9 +275,23 @@ label {
   margin-bottom: 10px;
 }
 
-.your_recipes {
+.your_recipes, .favorite_recipes {
   color: #AEC4A5;
   text-shadow: none;
+}
+
+/* recipe favorites */
+
+.favorites {
+  a {
+    display: block;
+    color: #525164;
+    text-decoration: none;
+    margin-bottom: 10px;
+    &:hover {
+      color: #DC938B;
+    }
+  }
 }
 
 /* recipes new */
