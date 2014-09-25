@@ -4,6 +4,8 @@ class RecipeIngredient < ActiveRecord::Base
   validates :unit, presence: true
   validates :amount, presence: true
 
+  validates :recipe_id, uniqueness: {scope: :ingredient_id}
+
   def ingredient_name
     ingredient.name
   end
