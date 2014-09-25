@@ -5,6 +5,7 @@ Recipes::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :recipes do
     put :favorite, on: :member
+    get 'search', on: :collection
   end
   resources :ingredients
   root 'static_pages#home'

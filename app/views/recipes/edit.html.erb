@@ -1,0 +1,30 @@
+<% provide(:title, 'Recipes') %>
+<h1 class="create_recipe">Update a Recipe</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for @recipe do | recipe_form | %>
+      <%= render "recipe_form", recipe_form: recipe_form %>
+      <%= recipe_form.fields_for :recipe_ingredients, @recipe_ingredient do | recipe_ingredients_form | %>
+
+        <%= render "recipe_ingredient_form", recipe_ingredients_form: recipe_ingredients_form %>
+        <%= button_tag "Add Another Ingredient", type: 'button', id: 'add_form_line', class: "btn btn-small btn" %>
+
+        <div id="form_partial_wrapper">
+          <div class="hidden">
+            <span class="form_clone" id="clone_template">
+              <%= recipe_form.fields_for :recipe_ingredients, @recipe_ingredient do | recipe_ingredients_form | %>
+                <%= render "recipe_ingredient_form", recipe_ingredients_form: recipe_ingredients_form %>
+              <% end %>
+              <br/>
+            </span>
+          </div>
+        </div>
+
+
+      <% end %>
+
+      <%= recipe_form.submit "Update New Recipe", class: "btn btn-medium btn-inverse" %>
+    <% end %>
+  </div>
+</div>

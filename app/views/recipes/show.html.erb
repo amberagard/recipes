@@ -12,9 +12,10 @@
 <h3>Ingredients</h3>
 
   <% @recipe_ingredients.each do | ingredient | %>
-    <p class="recipe_ingredients"><%= ingredient.ingredient_name %>
+    <p class="recipe_ingredients">
     <%= ingredient.amount %>
     <%= ingredient.unit %>
+    <%= ingredient.ingredient_name %>
   <% end %></p>
 
 <h3 class="recipe_instructions">Instructions</h3>

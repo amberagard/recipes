@@ -9,6 +9,12 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
+  # def search
+  #   term = params[:search]
+  #   ingredient = Ingredient.where(:name => term)
+  #   @recipes = Ingredient.find(ingredient).recipes
+  # end
+
   def create
     @recipe = current_user.recipes.build(recipe_params)
     if @recipe.save
@@ -17,6 +23,19 @@ class RecipesController < ApplicationController
       render :new
     end
   end
+
+  # def edit
+  #   @recipe = Recipe.find(params[:id])
+  # end
+  #
+  # def update
+  #   @recipe = Recipe.find_by_id(params[:id])
+  #   if @recipe.update(recipe_params)
+  #     redirect_to recipe_path
+  #   else
+  #     render :new
+  #   end
+  # end
 
   def show
     @recipe = Recipe.find(params[:id])
@@ -44,6 +63,6 @@ class RecipesController < ApplicationController
 
   private
     def recipe_params
-      params.require(:recipe).permit(:name, :description, :instructions, :recipe_ingredients_attributes => [:amount, :unit, :ingredient_id])
+      params.require(:recipe).permit(:name, :description, :instructions, :recipe_ingredients_attributes => [:amount, :unit, :ingredient_id, :recipe_id])
     end
 end

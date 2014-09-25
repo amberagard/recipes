@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20140924191025) do
   create_table "recipe_ingredients", force: true do |t|
     t.integer  "recipe_id"
     t.integer  "ingredient_id"
-    t.integer  "amount"
+    t.decimal  "amount"
     t.string   "unit"
     t.datetime "created_at"
     t.datetime "updated_at"
